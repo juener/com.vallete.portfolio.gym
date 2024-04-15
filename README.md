@@ -8,7 +8,7 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 
 ## FRs (functional requirements)
 
-- [ ] must be possible to register;
+- [x] must be possible to register;
 - [ ] must be possible to log in;
 - [ ] must be possible to fetch the profile details from the logged user;
 - [ ] must be possible to fetch the number of check-ins from the logged user;
@@ -20,7 +20,7 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 
 ## BRs (business requirements)
 
-- [ ] the user cannot register with duplicated email;
+- [x] the user cannot register with duplicated email;
 - [ ] the user cannot check-in twince at the same day;
 - [ ] the user cannot check-in far from 100 meters of the gym;
 - [ ] the check must be validated within 30 minutes;
@@ -29,7 +29,7 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 
 ## NFRs (non-functional requirements)
 
-- [ ] the user password must be cryptographed 
-- [ ] all the data must be persisted in a PostgreSQL database;
+- [x] the user password must be cryptographed 
+- [x] all the data must be persisted in a PostgreSQL database;
 - [ ] all the data list must be paged by 20 items per page;
 - [ ] the user must be idetified by JWT.
