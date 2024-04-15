@@ -1,5 +1,10 @@
+/* https://eslint.org/docs/latest/use/configure/#configuring-rules */
 {
   "extends": [
     "@rocketseat/eslint-config/node"
-  ]
+  ],
+  "rules": {
+    "camelcase": "warn", 
+    "no-useless-constructor": "off"
+  },
 }

@@ -1,6 +1,6 @@
 # App
 
-GymPass Portfolio App (with geo location and focused on testing)
+GymPass Portfolio App (with geo location and focused on testing) using SOLID
 - docker
 - prisma 
 - postgresql 
