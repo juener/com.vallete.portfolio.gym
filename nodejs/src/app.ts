@@ -16,7 +16,7 @@ app.setErrorHandler((error, _, reply) => {
 
   if (env.NODE_ENV !== 'production') {
     console.error(error)
-  }else{
+  } else {
     // TODO: we should export the logs to an external tool
   }
 

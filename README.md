@@ -9,7 +9,7 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 ## FRs (functional requirements)
 
 - [x] must be possible to register;
-- [ ] must be possible to log in;
+- [x] must be possible to log in;
 - [ ] must be possible to fetch the profile details from the logged user;
 - [ ] must be possible to fetch the number of check-ins from the logged user;
 - [ ] must be possible to fetch the history of check-ins from the logged user;
@@ -21,7 +21,7 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 ## BRs (business requirements)
 
 - [x] the user cannot register with duplicated email;
-- [ ] the user cannot check-in twince at the same day;
+- [ ] the user cannot check-in twice at the same day;
 - [ ] the user cannot check-in far from 100 meters of the gym;
 - [ ] the check must be validated within 30 minutes;
 - [ ] the check-in only may be validated by administrators;

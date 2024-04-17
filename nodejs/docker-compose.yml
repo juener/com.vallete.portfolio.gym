@@ -3,9 +3,9 @@ version: '3'
 services:
   portfolio-gym-pg:
     image: bitnami/postgresql
-    ports: 
+    ports:
       - 5432:5432
     environment:
-      - POSTGRESQL_USERNAME=docker
-      - POSTGRESQL_PASSWORD=dockerPass
-      - POSTGRESQL_DATABASE=portfolio-gym
+      - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}
+      - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
+      - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
