@@ -10,7 +10,7 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 
 - [x] must be possible to register;
 - [x] must be possible to log in;
-- [ ] must be possible to fetch the profile details from the logged user;
+- [x] must be possible to fetch the profile details from the logged user;
 - [ ] must be possible to fetch the number of check-ins from the logged user;
 - [ ] must be possible to fetch the history of check-ins from the logged user;
 - [ ] must be possible to fetch gyms around the logged user;
