@@ -6,8 +6,6 @@
   "rules": {
     "camelcase": "off",
     "no-useless-constructor": "off",
-    "object-curly-spacing": "off",
-    "space-infix-ops": "off",
-    "brace-style": ["error", "1tbs"]
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }

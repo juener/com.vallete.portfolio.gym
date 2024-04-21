@@ -1,5 +1,7 @@
 version: '3'
 
+name: portfolio-gym
+
 services:
   portfolio-gym-pg:
     image: bitnami/postgresql

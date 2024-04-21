@@ -15,14 +15,15 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 - [ ] must be possible to fetch the history of check-ins from the logged user;
 - [ ] must be possible to fetch gyms around the logged user;
 - [ ] must be possible to search for gyms using their name;
+- [x] must be possible to the user check in a gym;
 - [ ] must be possible to validate the user check-in;
-- [ ] must be possible to register a gym;
+- [x] must be possible to register a gym;
 
 ## BRs (business requirements)
 
 - [x] the user cannot register with duplicated email;
-- [ ] the user cannot check-in twice at the same day;
-- [ ] the user cannot check-in far from 100 meters of the gym;
+- [x] the user cannot check-in twice at the same day;
+- [x] the user cannot check-in far from 100 meters of the gym;
 - [ ] the check must be validated within 30 minutes;
 - [ ] the check-in only may be validated by administrators;
 - [ ] the gym only may be registered by administrator;
