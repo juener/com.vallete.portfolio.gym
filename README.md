@@ -11,8 +11,8 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 - [x] must be possible to register;
 - [x] must be possible to log in;
 - [x] must be possible to fetch the profile details from the logged user;
-- [ ] must be possible to fetch the number of check-ins from the logged user;
-- [ ] must be possible to fetch the history of check-ins from the logged user;
+- [x] must be possible to fetch the number of check-ins from the logged user;
+- [x] must be possible to fetch the history of check-ins from the logged user;
 - [ ] must be possible to fetch gyms around the logged user;
 - [ ] must be possible to search for gyms using their name;
 - [x] must be possible to the user check in a gym;
@@ -32,5 +32,5 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 
 - [x] the user password must be cryptographed 
 - [x] all the data must be persisted in a PostgreSQL database;
-- [ ] all the data list must be paged by 20 items per page;
+- [x] all the data list must be paged by 20 items per page;
 - [ ] the user must be idetified by JWT.
