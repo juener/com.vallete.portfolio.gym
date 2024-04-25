@@ -13,6 +13,8 @@ const envSchema = z.object({
   POSTGRESQL_DATABASE: z.coerce.string().min(5),
   // common variables
   APP_ROWS_PER_PAGE: z.coerce.number().default(20),
+  // authentication
+  JWT_SECRET: z.coerce.string().min(10),
 })
 
 const _env = envSchema.safeParse(process.env)

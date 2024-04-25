@@ -32,7 +32,7 @@ describe('Authenticate Use Case', () => {
     await expect(user.id).toEqual(expect.any(String))
   })
 
-  it('should not be able to authenticate with an inexistent user', async () => {
+  it('should not be able to authenticate with a non-existent user', async () => {
     await expect(() =>
       sut.execute({
         email: 'johndoe@vallete.com',
