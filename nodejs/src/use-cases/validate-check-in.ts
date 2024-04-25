@@ -30,7 +30,12 @@ export class ValidadeCheckInUseCase {
       checkIn.validated_at,
     ).diff(checkIn.created_at, 'minutes')
 
-    if (differenceOfMinutesBetweenCheckInAndValidation > 30) {
+    const MAXIMUM_TIME_TO_CHECK_IN_IN_MINUTES = 30
+
+    if (
+      differenceOfMinutesBetweenCheckInAndValidation >
+      MAXIMUM_TIME_TO_CHECK_IN_IN_MINUTES
+    ) {
       throw new MaxTimeExceeded()
     }
 

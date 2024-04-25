@@ -1,18 +1,10 @@
-import { Prisma } from '@prisma/client'
+import { CheckIn, Prisma } from '@prisma/client'
 import { CheckInsRepository } from '../check-ins-repository'
 import { prisma } from '@/lib/prisma'
 import dayjs from 'dayjs'
 import { env } from '@/env'
 
 export class PrismaCheckInsRepository implements CheckInsRepository {
-  async create(data: Prisma.CheckInUncheckedCreateInput) {
-    const checkIn = await prisma.checkIn.create({
-      data,
-    })
-
-    return checkIn
-  }
-
   async countByUserId(userId: string) {
     const countCheckIns = await prisma.checkIn.count({
       where: {
@@ -21,6 +13,24 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
     })
 
     return countCheckIns
+  }
+
+  async create(data: Prisma.CheckInUncheckedCreateInput) {
+    const checkIn = await prisma.checkIn.create({
+      data,
+    })
+
+    return checkIn
+  }
+
+  async findById(checkInId: string) {
+    const checkIn = await prisma.checkIn.findUnique({
+      where: {
+        id: checkInId,
+      },
+    })
+
+    return checkIn
   }
 
   async findManyByUserId(userId: string, page: number) {
@@ -47,6 +57,17 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
           lte: endOfTheDay.toDate(),
         },
       },
+    })
+
+    return checkIn
+  }
+
+  async save(data: CheckIn) {
+    const checkIn = await prisma.checkIn.update({
+      where: {
+        id: data.id,
+      },
+      data,
     })
 
     return checkIn
