@@ -1,9 +1,8 @@
 import { Prisma } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library'
-import { GymsRepository } from '../gyms-repository'
+import { GymsRepository, FindManyNearbyParams } from '../gyms-repository'
 import { prisma } from '@/lib/prisma'
 import { env } from '@/env'
-import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found'
 
 export class PrismaGymsRepository implements GymsRepository {
   async create(data: Prisma.GymCreateInput) {
@@ -33,6 +32,17 @@ export class PrismaGymsRepository implements GymsRepository {
       },
       take: env.APP_ROWS_PER_PAGE,
       skip: (page - 1) * env.APP_ROWS_PER_PAGE,
+    })
+
+    return gyms
+  }
+
+  async findManyNearby(params: FindManyNearbyParams) {
+    const gyms = await prisma.gym.findMany({
+      where: {
+        latitude: params.latitude,
+        longitude: params.longitude,
+      },
     })
 
     return gyms
