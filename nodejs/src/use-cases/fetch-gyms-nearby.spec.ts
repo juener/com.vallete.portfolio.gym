@@ -23,7 +23,7 @@ describe('Fetch Nearby Gyms Use Case', () => {
 
     gymsRepository.items.push({
       id: randomUUID(),
-      title: 'Gym with latitude next to the user',
+      title: 'Gym with the latitude next to the user',
       description: null,
       phone: null,
       latitude: new Decimal(gymLatitudeNearby),
@@ -46,6 +46,11 @@ describe('Fetch Nearby Gyms Use Case', () => {
       userLongitude,
     })
 
-    await expect(gyms).toHaveLength(1)
+    expect(gyms).toHaveLength(1)
+    expect(gyms).toEqual([
+      expect.objectContaining({
+        title: 'Gym with the latitude next to the user',
+      }),
+    ])
   })
 })

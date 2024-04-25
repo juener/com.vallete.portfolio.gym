@@ -28,7 +28,7 @@ export class InMemoryGymsRepository implements GymsRepository {
     const gym = this.items.find((gym) => gym.id === gymId)
 
     if (!gym) {
-      throw new ResourceNotFoundError()
+      return null
     }
 
     return gym
