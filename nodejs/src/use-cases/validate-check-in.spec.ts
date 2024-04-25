@@ -2,6 +2,7 @@ import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-c
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { ValidadeCheckInUseCase } from './validate-check-in'
 import { ResourceNotFoundError } from './errors/resource-not-found'
+import { MaxTimeExceeded } from './errors/max-time-exceeded'
 
 let checkInsRepository: InMemoryCheckInsRepository
 let sut: ValidadeCheckInUseCase
@@ -42,5 +43,16 @@ describe('Validate Check-In Use Case', () => {
         checkInId: 'inexistent-check-in',
       }),
     ).rejects.toBeInstanceOf(ResourceNotFoundError)
+  })
+
+  it('should not be able to validate a check-in after 30 minutes', async () => {
+    const MINUTES_TO_ADVANCE_IN_MILLISECONDS = 1000 * 60 * 35 // 35 minutes
+    vi.advanceTimersByTime(MINUTES_TO_ADVANCE_IN_MILLISECONDS)
+
+    await expect(() =>
+      sut.execute({
+        checkInId: dummyCheckInId,
+      }),
+    ).rejects.toBeInstanceOf(MaxTimeExceeded)
   })
 })

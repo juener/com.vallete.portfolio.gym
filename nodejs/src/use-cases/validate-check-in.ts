@@ -1,6 +1,8 @@
 import { CheckInsRepository } from '@/repositories/check-ins-repository'
 import { CheckIn } from '@prisma/client'
 import { ResourceNotFoundError } from './errors/resource-not-found'
+import dayjs from 'dayjs'
+import { MaxTimeExceeded } from './errors/max-time-exceeded'
 
 interface ValidadeCheckInUseCaseRequest {
   checkInId: string
@@ -23,6 +25,14 @@ export class ValidadeCheckInUseCase {
     }
 
     checkIn.validated_at = new Date()
+
+    const differenceOfMinutesBetweenCheckInAndValidation = dayjs(
+      checkIn.validated_at,
+    ).diff(checkIn.created_at, 'minutes')
+
+    if (differenceOfMinutesBetweenCheckInAndValidation > 30) {
+      throw new MaxTimeExceeded()
+    }
 
     await this.checkInsRepository.save(checkIn)
 
