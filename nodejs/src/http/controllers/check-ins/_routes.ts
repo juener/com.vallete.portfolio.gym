@@ -8,7 +8,7 @@ export async function checkInsRoutes(app: FastifyInstance) {
   /* must be authenticated */
   app.addHook('onRequest', verifyJwt)
 
-  app.get('/check-ins/history', historyCheckInsController)
   app.post('/check-ins', createCheckInController)
   app.patch('/check-ins/:checkInId/validate', validateCheckInController)
+  app.get('/check-ins/history', historyCheckInsController)
 }

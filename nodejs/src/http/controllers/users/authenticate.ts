@@ -8,7 +8,7 @@ export async function authenticateController(
   reply: FastifyReply,
 ) {
   const authenticateBodySchema = z.object({
-    email: z.string(),
+    email: z.string().email(),
     password: z.string().min(6),
   })
 
@@ -28,9 +28,27 @@ export async function authenticateController(
       },
     )
 
-    return reply.status(200).send({
-      token,
-    })
+    const refreshToken = await reply.jwtSign(
+      {},
+      {
+        sign: {
+          sub: user.id,
+          expiresIn: '7d',
+        },
+      },
+    )
+
+    return reply
+      .setCookie('refreshToken', refreshToken, {
+        path: '/',
+        secure: true,
+        sameSite: true,
+        httpOnly: true, // not visible for front-ends
+      })
+      .status(200)
+      .send({
+        token,
+      })
   } catch (err) {
     if (err instanceof InvalidCredentialsError) {
       return reply.status(401).send({ message: err.message })

@@ -8,8 +8,8 @@ export async function gymsRoutes(app: FastifyInstance) {
   // must be authenticated
   app.addHook('onRequest', verifyJwt)
 
+  app.post('/gyms', createGymController)
+
   app.get('/gyms/search', searchGymsController)
   app.get('/gyms/nearby', nearbyGymsController)
-
-  app.post('/gyms', createGymController)
 }
