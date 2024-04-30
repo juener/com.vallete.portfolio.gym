@@ -4,7 +4,7 @@ import { Decimal } from '@prisma/client/runtime/library'
 import { randomUUID } from 'node:crypto'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found'
 import { env } from '@/env'
-import { getDistanceBetweenCoordinates } from '@/use-cases/utils/get-distance-between-coordinates'
+import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates'
 
 export class InMemoryGymsRepository implements GymsRepository {
   public items: Gym[] = []

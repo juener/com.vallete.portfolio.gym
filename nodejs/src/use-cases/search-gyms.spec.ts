@@ -31,6 +31,10 @@ describe('Search Gyms Use Case', async () => {
     })
 
     expect(gyms).toHaveLength(1)
-    expect(gyms).toEqual([expect.objectContaining({ title: gymTitle })])
+    expect(gyms).toEqual([
+      expect.objectContaining({
+        title: gymTitle,
+      }),
+    ])
   })
 })

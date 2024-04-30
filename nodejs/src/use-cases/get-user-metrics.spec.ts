@@ -23,7 +23,7 @@ describe('Get User Metrics Use Case', () => {
     })
   })
 
-  it('should be possible to get the count of check-ins from metrics', async () => {
+  it('should be able to get the count of check-ins from metrics', async () => {
     const userMetrics = await sut.execute({ userId })
 
     expect(userMetrics.checkInsCount).toBe(1)

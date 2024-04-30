@@ -39,7 +39,7 @@ describe('Fetch User Check In History Use Case', () => {
     )
   })
 
-  it('should be possible to be paginated when fetching', async () => {
+  it('should be able to be paginated when fetching', async () => {
     const { checkIns } = await sut.execute({
       userId: dummyUserId,
       page: 2,
