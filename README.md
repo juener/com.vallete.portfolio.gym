@@ -25,12 +25,12 @@ GymPass Portfolio App (with geo location and focused on testing) using SOLID
 - [x] the user cannot check-in twice at the same day;
 - [x] the user cannot check-in far from 100 meters of the gym;
 - [x] the check must be validated within 30 minutes;
-- [ ] the check-in only may be validated by administrators;
-- [ ] the gym only may be registered by administrator;
+- [x] the check-in only may be validated by administrators;
+- [x] the gym only may be registered by administrator;
 
 ## NFRs (non-functional requirements)
 
 - [x] the user password must be cryptographed 
 - [x] all the data must be persisted in a PostgreSQL database;
 - [x] all the data list must be paged by 20 items per page;
-- [ ] the user must be idetified by JWT.
+- [x] the user must be idetified by JWT.

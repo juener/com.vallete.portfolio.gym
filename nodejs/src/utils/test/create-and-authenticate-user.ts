@@ -6,7 +6,10 @@ import request from 'supertest'
 const email = 'johndoe@vallete.com'
 const password = '123456'
 
-export async function createAndAuthenticateUserTest(app: FastifyInstance) {
+export async function createAndAuthenticateUserTest(
+  app: FastifyInstance,
+  isAdmin = false,
+) {
   const password_hash = await hash(password, 6)
 
   const { id: userId } = await prisma.user.create({
@@ -14,6 +17,7 @@ export async function createAndAuthenticateUserTest(app: FastifyInstance) {
       name: 'John Doe',
       email,
       password_hash,
+      role: isAdmin ? 'ADMIN' : 'USER',
     },
   })
 
