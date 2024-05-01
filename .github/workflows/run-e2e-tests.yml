@@ -1,0 +1,31 @@
+name: Run E2E Tests
+
+on: [push]
+  name: Run E2E Tests
+  runs-on: ubuntu-latest
+
+  services:
+    portfolio-gym-pg:
+      image: bitnami/postgresql
+      ports:
+        - 5432:5432
+      env: ## IMPORTANT! for the github actions, use env instead of enviornment
+        POSTGRESQL_USERNAME: docker ## IMPORTANT! the format is not equal docker-compose
+        POSTGRESQL_PASSWORD: dockerPass
+        POSTGRESQL_DATABASE: portfolio-gym
+
+  steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with: 
+        node-version: 18
+        cache: 'npm'
+
+    - run: npm ci
+
+    - run: npm run test:e2e:run
+      env: 
+        JWT_SECRET: githubActionsTests
+        DATABASE_URL: "postgresql://docker:dockerPass@localhost:5432/porfolio-gym?schema=public"
+
