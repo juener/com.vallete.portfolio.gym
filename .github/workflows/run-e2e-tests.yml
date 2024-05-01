@@ -22,10 +22,13 @@ on: [push]
         node-version: 18
         cache: 'npm'
 
-    - run: npm ci
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./nodejs
 
-    - run: npm run test:e2e:run
-      env: 
+    - name: Run E2E tests
+      run: npm run test:e2e:run
+      env:
         JWT_SECRET: githubActionsTests
         DATABASE_URL: "postgresql://docker:dockerPass@localhost:5432/porfolio-gym?schema=public"
-
+      working-directory: ./nodejs

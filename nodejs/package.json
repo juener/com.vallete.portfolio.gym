@@ -1,7 +1,7 @@
 {
-  "name": "nodejs",
+  "name": "portfolio.gym",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a portfolio project hosted at com.vallete repositories.",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
