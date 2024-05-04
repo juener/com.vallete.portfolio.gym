@@ -1,6 +1,9 @@
 name: Run e2e tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   nodejs:
@@ -25,11 +28,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-optional
         working-directory: ./nodejs
 
       - name: Run e2e tests
-        run: npm run test:e2e:run
+        run: |
+          npm install
+          npm run test:e2e:run
         working-directory: ./nodejs
         env:
           JWT_SECRET: githubActionsTests
