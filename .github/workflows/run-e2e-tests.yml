@@ -26,11 +26,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install --no-optional
-        working-directory: ./com.vallete.portfolio.gym/nodejs
+        working-directory: ./nodejs
 
       - name: Run e2e tests
         run: npm run test:e2e:run
-        working-directory: ./com.vallete.portfolio.gym/nodejs
+        working-directory: ./nodejs
         env:
           JWT_SECRET: githubActionsTests
           DATABASE_URL: "postgresql://docker:dockerPass@localhost:5432/portfolio-gym?schema=public"
