@@ -29,13 +29,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install --no-optional
-        working-directory: ./nodejs
+        working-directory: .
 
       - name: Run e2e tests
         run: |
           npm install
           npm run test:e2e:run
-        working-directory: ./nodejs
+        working-directory: .
         env:
           JWT_SECRET: githubActionsTests
           DATABASE_URL: "postgresql://docker:dockerPass@localhost:5432/portfolio-gym?schema=public"
