@@ -6,8 +6,14 @@ import { env } from './env'
 import { usersRoutes } from './http/controllers/users/_routes'
 import { gymsRoutes } from './http/controllers/gyms/_routes'
 import { checkInsRoutes } from './http/controllers/check-ins/_routes'
+import fastifyCors from '@fastify/cors'
 
 export const app = fastify()
+
+app.register(fastifyCors, {
+  origin: 'http://localhost:5173', // TODO: change this
+  credentials: true,
+})
 
 app.register(fastifyCookie)
 

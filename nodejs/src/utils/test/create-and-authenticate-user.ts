@@ -21,7 +21,7 @@ export async function createAndAuthenticateUserTest(
     },
   })
 
-  const authResponse = await request(app.server).post('/session').send({
+  const authResponse = await request(app.server).post('/authenticate').send({
     email,
     password,
   })

@@ -49,10 +49,14 @@ export async function authenticateController(
         sameSite: true,
         httpOnly: true, // not visible for front-ends
       })
-      .status(200)
-      .send({
-        token,
+      .setCookie('token', token, {
+        path: '/',
+        secure: true,
+        sameSite: true,
+        httpOnly: true,
       })
+      .status(200)
+      .send()
   } catch (err) {
     if (err instanceof InvalidCredentialsError) {
       return reply.status(401).send({ message: err.message })

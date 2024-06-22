@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ### Authenticate an existent user ###
 # @name authenticate
-POST {{baseUrl}}/session
+POST {{baseUrl}}/authenticate
 Content-Type: application/json
 
 {

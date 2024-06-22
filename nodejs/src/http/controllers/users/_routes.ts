@@ -8,7 +8,7 @@ import { refreshTokenController } from './refresh'
 
 export async function usersRoutes(app: FastifyInstance) {
   app.post('/users', registerController)
-  app.post('/session', authenticateController)
+  app.post('/authenticate', authenticateController)
 
   app.patch('/refresh/token', refreshTokenController)
 

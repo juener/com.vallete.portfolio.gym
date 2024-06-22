@@ -21,7 +21,7 @@ describe('Authenticate (e2e)', () => {
       password,
     })
 
-    const response = await request(app.server).post('/session').send({
+    const response = await request(app.server).post('/authenticate').send({
       email,
       password,
     })
